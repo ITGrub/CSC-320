@@ -1,0 +1,55 @@
+ITS320_CTA3_Option2.py
+#-------------------------------------------
+# Program Name: Brian Holden
+# Author: Brian Holden
+# Date: 30 June, 2024
+#-------------------------------------------
+# Pseudocode: The tax brackets are placed in a dictionary format
+# and once the user inputs their income, the income is then calculated
+# and presented to the user in the form of tax percentage and tax owed.
+#-------------------------------------------
+# Program Inputs: 2800
+# Program Outputs: 
+# Income Inputted: 2800
+# You are in the Upper Bracket
+# Tax Rate: 30.0 %
+# Tax Amount: 840.0
+#-------------------------------------------
+
+Tax_Brackets = {      
+  "Lower Bracket": {    
+    "Tax Rate": 0.1,    
+    "Max Income": 500  },
+  "Lower Middle Bracket": {
+    "Tax Rate": 0.15,
+    "Max Income": 1500
+  },
+  "Upper Middle Bracket": {
+    "Tax Rate": 0.20,
+    "Max Income": 2500
+  },
+  "Upper Bracket": {
+    "Tax Rate": 0.30,
+    "Max Income": float('inf')
+  }
+}
+income = int(input("What is your income? "))
+
+print("Income Inputted:", income)
+
+if income < Tax_Brackets["Lower Bracket"]["Max Income"]:
+    print("You are in the Lower Bracket")
+    print("Tax Rate:", Tax_Brackets["Lower Bracket"]["Tax Rate"]*100,"%")
+    print("Tax Amount:", income * Tax_Brackets["Lower Bracket"]["Tax Rate"])
+elif income <= Tax_Brackets["Lower Middle Bracket"]["Max Income"]:
+    print("You are in the Lower Middle Bracket")
+    print("Tax Rate:", Tax_Brackets["Lower Middle Bracket"]["Tax Rate"]*100,"%")
+    print("Tax Amount:", income * Tax_Brackets["Lower Middle Bracket"]["Tax Rate"])
+elif income <= Tax_Brackets["Upper Middle Bracket"]["Max Income"]:
+    print("You are in the Upper Middle Bracket")
+    print("Tax Rate:", Tax_Brackets["Upper Middle Bracket"]["Tax Rate"]*100,"%")
+    print("Tax Amount:", income * Tax_Brackets["Upper Middle Bracket"]["Tax Rate"])
+else:
+    print("You are in the Upper Bracket")
+    print("Tax Rate:", Tax_Brackets["Upper Bracket"]["Tax Rate"]*100,"%")
+    print("Tax Amount:", income * Tax_Brackets["Upper Bracket"]["Tax Rate"])
